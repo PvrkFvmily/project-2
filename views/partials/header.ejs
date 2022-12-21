@@ -9,7 +9,17 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/users/new">Sign Up</a></li>
+            <!-- show home whether the user is logged in or not -->
+            <li><a href="/">Home</a></li>
+            <% if (user) { %>
+                <!-- show this if user is logged -->
+                <li><a href="/users/profile">Profile</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+                <% } else { %>
+                    <!-- show these if user not logged in -->
+                    <li><a href="/users/new">Sign Up</a></li>
+                    <li><a href="/users/login">Login</a></li>
+            <% } %>
         </ul>
     </nav>
     <h1>Express Auth boilerplate for p2 🔑</h1>
