@@ -5,6 +5,9 @@ This project allows you to view list of the villagers from Animal Crossing: New 
 ##  API
 My choice of api is ACNH API which is a free RESTful API. It has information of critters, fossils, art, music, furniture, and villagers. But for this project I'll focusing on villager's information. "https://acnhapi.com/v1a/villagers" will give information of all villagers in an array.
 
+proof of concept
+![Installation](concept.drawio.png)
+
 ---
 ## ERD
 ![Installation](erd.drawio.png)
