@@ -15,6 +15,7 @@ My choice api is ACNH API which is a free RESTful API. It has information of cri
 
 ---
 ## Wireframes
+![Installation](wireframe.drawio.png)
 
 ---
 ## User Stories
