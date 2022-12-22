@@ -3,7 +3,7 @@ This project allows you to view list of the villagers from Animal Crossing: New 
 
 ---
 ##  API
-My choice api is ACNH API which is a free RESTful API. It has information of critters, fossils, art, music, furniture, and villagers. But for this project I'll focusing on villager's information. "https://acnhapi.com/v1a/villagers" will give information of all villagers in an array.
+My choice of api is ACNH API which is a free RESTful API. It has information of critters, fossils, art, music, furniture, and villagers. But for this project I'll focusing on villager's information. "https://acnhapi.com/v1a/villagers" will give information of all villagers in an array.
 
 ---
 ## ERD
@@ -27,13 +27,14 @@ My choice api is ACNH API which is a free RESTful API. It has information of cri
 ---
 ## MVP
 - login screen with sign up
-- home screen with villager list and hyperlink to profile
-- profile page with favorited villagers
+- home screen with villager list
+- profile page with favorited villagers with comments
 - be able to add villager to favorite list and delete from favorite list
+- comment on villagers and other user's comment 
 - being able to log out
 
 ---
 ## Strecth Goals
-- able to add a comment and rating on a detail villager page
-- see other user's comment and rating on a detail villager page
+- able to add rating on a detail villager page
+- see other user's rating on a detail villager page
 - list villagers by rating

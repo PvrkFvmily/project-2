@@ -29,7 +29,6 @@ app.use(async (req, res, next) => {
     } catch (err) {
         console.log('error in auth middleware: 🔥🔥🔥🔥', err)
         next() // go to the next thing
-        
     }
 })
 
