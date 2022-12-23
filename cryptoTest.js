@@ -19,12 +19,12 @@
 // hashing is a one way process, once data has hashed you cannot unhash it
 // hashing functions always return a hash of equal length regardless on input
 // hashing fuctions always return the same output given the same input
-const bcrypt = require('bcrypt')
+// const bcrypt = require('bcrypt')
 
-const userPassword = '12345password'
+// const userPassword = '12345password'
 // when the user signs up we want to hash their password and save it in the db
-const hashedPassword = bcrypt.hashSync(userPassword, 12)
-console.log(hashedPassword)
+// const hashedPassword = bcrypt.hashSync(userPassword, 12)
+// console.log(hashedPassword)
 
 // console.log(bcrypt.compareSync(userPassword, hashedPassword))
 

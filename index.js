@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
+const crypto = require('crypto-js')
 
 // app config
 const app = express()
@@ -19,8 +20,11 @@ app.use(cookieParser())
 app.use(async (req, res, next) => {
     try {
         if (req.cookies.userId) {
+            // decrypt the user id and turn it into a string
+            const decryptedId = crypto.AES.decrypt(req.cookies.userId, process.env.SECRET)
+            const decryptedString = decryptedId.toString(crypto.enc.Utf8)
             // the user is logged in, lets find then in the db
-            const user = await db.user.findByPk(req.cookies.userId)
+            const user = await db.user.findByPk(decryptedString)
             // mount the logged in user on the res.locals
             res.locals.user = user
         }
@@ -28,6 +32,8 @@ app.use(async (req, res, next) => {
         next()
     } catch (err) {
         console.log('error in auth middleware: 🔥🔥🔥🔥', err)
+        // explicity set user to null if there is an error
+        res.locals.user = null
         next() // go to the next thing
     }
 })
@@ -35,11 +41,11 @@ app.use(async (req, res, next) => {
 
 // // example custom middleware
 // app.use((req, res, next) => {
-//     // console.log('hello from inside of the middleware!')
+    // console.log('hello from inside of the middleware!')
 //     // res.locals are a place that we can put data to share with 'downstream routes'
 //     // res.locals.myData = 'hello I am data'
 //     // invoke next to tell express to go to the next route or middleware
-//     next()
+    // next()
 // })
 
 // routes and controllers
