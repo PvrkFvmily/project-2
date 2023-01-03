@@ -3,5 +3,13 @@
 <h1><%= villager.name['name-USen'] %></h1>
 
 <img src="https://acnhapi.com/v1a/image/villagers/<%= villager.id %>"/>
+<div>
+    <p>Personality: <%= villager.personality %></p>
+    <p>Birthday: <%= villager['birthday-string'] %></p>
+    <p>Species: <%= villager.species %></p>
+    <p>Gender: <%= villager.gender %></p>
+    <p>Hobby: <%= villager.hobby %></p>
+    <p>Catch-Phrase: <%= villager['catch-phrase'] %></p>
+</div>
 
 <%- include('../partials/footer') %>
