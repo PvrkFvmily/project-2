@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   villager.init({
     userId: DataTypes.INTEGER,
-    id: DataTypes.INTEGER,
+    villagerId: DataTypes.INTEGER,
     imgUrl: DataTypes.STRING,
     name: DataTypes.STRING
   }, {

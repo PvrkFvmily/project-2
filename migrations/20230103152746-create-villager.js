@@ -12,7 +12,7 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER
       },
-      id: {
+      villagerId: {
         type: Sequelize.INTEGER
       },
       imgUrl: {

@@ -1,7 +1,7 @@
 {
   "name": "project-2-auth",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project allows you to view list of the villagers from Animal Crossing: New Horizons. Idea is that it helps users to see what kind of villagers there are. Or if you have villagers already it helps to get to know them better. Rate the villagers and see how others feel about the villager!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

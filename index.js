@@ -38,7 +38,6 @@ app.use(async (req, res, next) => {
     }
 })
 
-
 // // example custom middleware
 // app.use((req, res, next) => {
     // console.log('hello from inside of the middleware!')
