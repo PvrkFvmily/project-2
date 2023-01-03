@@ -1,0 +1,3 @@
+sequelize model:create --name villager --attributes userId:integer,id:integer,imgUrl:string,name:string
+
+sequelize model:create --name comment --attributes userId:integer,villagerId:integer,comment:string

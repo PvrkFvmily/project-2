@@ -7,7 +7,7 @@ const crypto = require('crypto-js')
 
 // app config
 const app = express()
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT
 app.set('view engine', 'ejs')
 // parse request bodies from html forms
 app.use(express.urlencoded({ extended: false }))
@@ -60,5 +60,5 @@ app.use('/users', require('./controllers/users'))
 
 // listen on a port
 app.listen(PORT, () => {
-    console.log(`authenticating users on PORT ${PORT} 🔐`)
+    console.log(`Its over ${PORT}! 🔐`)
 })
