@@ -56,6 +56,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/users', require('./controllers/users'))
+app.use('/villagers', require('./controllers/villagers'))
 
 // listen on a port
 app.listen(PORT, () => {
