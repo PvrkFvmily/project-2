@@ -1,7 +1,12 @@
 <%- include('../partials/header', { user }) %>
 
-<% villager.forEach(function(villager) { %>
-    <img src="<%= villager.image_url %>" />
-<% }) %>
+<div>
+    <% villager.forEach(function(villagers) { %>
+        <a href="villagers/<%= villagers.id %>"><%= villagers.name['name-USen'] %></a>
+        <div>
+            <img src="https://acnhapi.com/v1a/image/villagers/<%= villagers.id %>"/> 
+        </div>
+    <% }) %>
+</div>
 
 <%- include('../partials/footer') %>
