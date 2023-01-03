@@ -1,11 +1,17 @@
 const express = require('express')
+const axios = require('axios')
 const db = require('../models')
 const router = express.Router()
 
 // GET /
 router.get('/', async (req, res) => {
     try {
-        res.send('list all the villagers here with ejs')
+        let acnhUrl = 'https://acnhapi.com/v1a/villagers'
+        const response = await axios.get(acnhUrl)
+        // console.log(response.data[0].personality)
+        res.render('villagers/all.ejs', {
+            villager: response.data,
+        })
     } catch (error) {
         console.log('cannot get info', error)
     }
@@ -49,4 +55,5 @@ router.get('/hobby', async (req, res) => {
 // })
 
 // router export
-module.exports = router
+
+module.exports = router;
