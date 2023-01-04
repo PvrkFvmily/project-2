@@ -3,7 +3,7 @@
 <div>
     <% villagers.forEach(function(villager) { %>
         <div>
-            <img src="<%= villager.image_uri %>"/> 
+            <img src="<%= villager.icon_uri %>"/> 
         </div>
         <a href="villagers/<%= villager.id %>"><%= villager.name['name-USen'] %></a>
     <% }) %>

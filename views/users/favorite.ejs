@@ -1,0 +1,9 @@
+<%- include('../partials/header', { user }) %>
+
+<h1>Here are your favorit villagers!</h1>
+
+<% villagers.forEach(function(villager) { %>
+    <%= villager.name %>
+<% }) %>
+
+<%- include('../partials/footer') %>

@@ -106,12 +106,54 @@ router.get('/profile', (req, res) => {
     }
 })
 
+// GET /profile/villagers find all villagers
+router.get('/profile/villagers', async (req, res) => {
+    try {
+        if (!res.locals.user) {
+            res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
+        } else {
+            const findFav = await db.favVillager.findAll()
+            res.render('users/favorite.ejs', {
+                users: res.locals.user,
+                villagers: findFav
+            })
+        }
+    } catch (error) {
+        console.log(error, 'cant do')
+    }
+})
+
 // POST /profile/villagers post comments
-router.post('/profile/villagers', (req, res) => {
-    db.UserVillager.create({
-        userId: req.body.userId,
-        villagerId: req.body.villagerId
-    })
+router.post('/profile/villagers', async (req, res) => {
+    try {
+        const createFav = await db.favVillager.findOrCreate({
+            where: {
+                userId: req.body.userId,
+                villagerId: req.body.villagerId,
+                name: req.body.name,
+                imgUrl: req.body.imgUrl,
+                birthday: req.body.birthday,
+                species: req.body.species,
+                gender: req.body.gender,
+                hobby: req.body.hobby,
+                catch_phrase: req.body.catch_phrase
+            },
+            defaults: {
+                userId: req.body.userId,
+                villagerId: req.body.villagerId,
+                name: req.body.name,
+                imgUrl: req.body.imgUrl,
+                birthday: req.body.birthday,
+                species: req.body.species,
+                gender: req.body.gender,
+                hobby: req.body.hobby,
+                catch_phrase: req.body.catch_phrase
+            }
+        })
+        res.redirect('/users/profile/villagers')
+    } catch (error) {
+        console.log(error, 'cant do')
+    }
 })
 
 // export the router
