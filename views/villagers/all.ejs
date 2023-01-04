@@ -2,10 +2,10 @@
 
 <div>
     <% villagers.forEach(function(villager) { %>
-        <a href="villagers/<%= villager.id %>"><%= villager.name['name-USen'] %></a>
         <div>
             <img src="<%= villager.image_uri %>"/> 
         </div>
+        <a href="villagers/<%= villager.id %>"><%= villager.name['name-USen'] %></a>
     <% }) %>
 </div>
 

@@ -106,9 +106,13 @@ router.get('/profile', (req, res) => {
     }
 })
 
-// router.get('/profile/villagers', (req, res) => {
-
-// })
+// POST /profile/villagers post comments
+router.post('/profile/villagers', (req, res) => {
+    db.UserVillager.create({
+        userId: req.body.userId,
+        villagerId: req.body.villagerId
+    })
+})
 
 // export the router
 module.exports = router
