@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         const response = await axios.get(acnhUrl)
         // console.log(response.data[0].personality)
         res.render('villagers/all.ejs', {
-            villager: response.data,
+            villagers: response.data,
         })
     } catch (error) {
         console.log('cannot get info', error)
@@ -55,8 +55,8 @@ router.get('/:id', async (req, res) => {
         let acnhUrl = `https://acnhapi.com/v1a/villagers/${req.params.id}`
         const response = await axios.get(acnhUrl)
         res.render('villagers/details.ejs', {
-            villager: response.data,
-            user: res.locals.user
+            villagers: response.data,
+            users: res.locals.user
         })
     } catch (error) {
         console.log('cannot get info', error)
