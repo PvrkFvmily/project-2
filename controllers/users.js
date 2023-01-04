@@ -106,5 +106,9 @@ router.get('/profile', (req, res) => {
     }
 })
 
+// router.get('/profile/villagers', (req, res) => {
+
+// })
+
 // export the router
 module.exports = router

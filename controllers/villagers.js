@@ -55,7 +55,8 @@ router.get('/:id', async (req, res) => {
         let acnhUrl = `https://acnhapi.com/v1a/villagers/${req.params.id}`
         const response = await axios.get(acnhUrl)
         res.render('villagers/details.ejs', {
-            villager: response.data
+            villager: response.data,
+            user: res.locals.user
         })
     } catch (error) {
         console.log('cannot get info', error)

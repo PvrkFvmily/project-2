@@ -12,4 +12,13 @@
     <p>Catch-Phrase: <%= villager['catch-phrase'] %></p>
 </div>
 
+<form method="POST" action="/profile/villagers">
+    <input hidden type="text" name="name" value="<%= villager.name['name-USen'] %>"/>
+    <input hidden type="text" name="userId" value="<%= user.id %>"/>
+    <input hidden type="text" name="villagerId" value="<%= villager.id %>"/>
+    <input hidden type="text" name="imgUrl" value="<%= villager.image_uri %>"/>
+
+    <button type="submit">Add to Favorites</button>
+</form>
+
 <%- include('../partials/footer') %>

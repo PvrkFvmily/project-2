@@ -4,7 +4,7 @@
     <% villager.forEach(function(villagers) { %>
         <a href="villagers/<%= villagers.id %>"><%= villagers.name['name-USen'] %></a>
         <div>
-            <img src="https://acnhapi.com/v1a/image/villagers/<%= villagers.id %>"/> 
+            <img src="<%= villagers.image_uri %>"/> 
         </div>
     <% }) %>
 </div>
