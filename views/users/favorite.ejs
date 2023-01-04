@@ -3,7 +3,10 @@
 <h1>Here are your favorit villagers!</h1>
 
 <% villagers.forEach(function(villager) { %>
-    <%= villager.name %>
+    <div>
+        <img src="<%= villager.imgUrl %>"/>
+    </div>
+    <p><%= villager.name %></p>
 <% }) %>
 
 <%- include('../partials/footer') %>

@@ -150,11 +150,20 @@ router.post('/profile/villagers', async (req, res) => {
                 catch_phrase: req.body.catch_phrase
             }
         })
+        // LATER CHANGE THIS TO LIKE POPUP MSG AND REDIRECT TO ALL VILLAGERS
         res.redirect('/users/profile/villagers')
     } catch (error) {
         console.log(error, 'cant do')
     }
 })
 
+// DELETE
+router.delete('/id', async (req, res) => {
+    try {
+        
+    } catch (error) {
+        console.log(error, 'cant do')
+    }
+})
 // export the router
 module.exports = router
