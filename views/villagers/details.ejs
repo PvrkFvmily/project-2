@@ -27,4 +27,12 @@
     <button type="submit">Add to Favorites</button>
 </form>
 
+<form method="POST" action="/villagers/<%= villagers.id %>">
+    <input id="comment" type="text" name="comment">
+    <input hidden type="text" name="userId" value="<%= user.id %>" />
+    <input hidden type="text" name="villagerId" value="<%= villagers.id %>" />
+    
+    <button type="sumbit">Submit</button>
+</form>
+
 <%- include('../partials/footer') %>
