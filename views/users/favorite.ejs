@@ -7,6 +7,9 @@
         <img src="<%= villager.imgUrl %>"/>
     </div>
     <p><%= villager.name %></p>
+    <form method="POST" action="/users/villagers/" + <%= villager.id %>>/?_method=DELETE
+        <button type="submit">Delete</button>
+    </form>
 <% }) %>
 
 <%- include('../partials/footer') %>
