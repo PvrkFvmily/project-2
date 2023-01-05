@@ -31,8 +31,17 @@
     <input id="comment" type="text" name="comment">
     <input hidden type="text" name="userId" value="<%= user.id %>" />
     <input hidden type="text" name="villagerId" value="<%= villagers.id %>" />
-    
+
     <button type="sumbit">Submit</button>
 </form>
+
+<h2>Comments</h2>
+<div>
+    <% comments.forEach(function(user) { %>
+        <div>
+            <p><%= user.comment %></p>
+        </div>
+    <% }) %>
+</div>
 
 <%- include('../partials/footer') %>

@@ -56,12 +56,15 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         let acnhUrl = process.env.API + '/' + req.params.id
+        const getComment = await db.comment.findAll()
         const response = await axios.get(acnhUrl)
         // console.log(acnhUrl)
         // console.log(response.data)
+        console.log(getComment)
         res.render('villagers/details.ejs', {
             villagers: response.data,
-            users: res.locals.user
+            users: res.locals.user,
+            comments: getComment
         })
     } catch (error) {
         console.log('cannot get info', error)
