@@ -7,7 +7,7 @@
         <img src="<%= villager.imgUrl %>"/>
     </div>
     <p><%= villager.name %></p>
-    <form method="POST" action="/users/villagers/" + <%= villager.id %>>/?_method=DELETE
+    <form method="POST" action="villagers/<%= villager.id %>/?_method=DELETE">
         <button type="submit">Delete</button>
     </form>
 <% }) %>

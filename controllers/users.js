@@ -158,13 +158,16 @@ router.post('/profile/villagers', async (req, res) => {
 })
 
 // DELETE /
-router.post('/profile/villagers/', async (req, res) => {
+router.delete('/profile/villagers/:id', async (req, res) => {
     try {
-        const deleteFav = await db.favVillager.findbyPK(req.body.id)
+        const deleteFav = await db.favVillager.findByPk(req.params.id)
         deleteFav.destroy()
+        res.redirect('/users/profile/villagers')
     } catch (error) {
         console.log(error, 'cant do')
     }
 })
+
+
 // export the router
 module.exports = router
