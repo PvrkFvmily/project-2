@@ -44,6 +44,9 @@
             <p>current user <%= user.id %></p>
             <% if (all.userId === user.id) { %>
                 <p>id match</p>
+                <form method="PUT" action="/villagers/<%= all.id %>">
+                    <button type="submit">Edit</button>
+                </form>
                 <form method="POST" action="/villagers/<%= all.id %>/?_method=DELETE">
                     <button type="submit">Delete Comment</button>
                 </form>

@@ -48,16 +48,16 @@ router.post('/:id', async (req, res) => {
             villagerId: req.body.villagerId,
             comment: req.body.comment
         })
-        res.redirect('/villagers')
+        res.redirect(`/villagers/${req.params.id}`)
     } catch (error) {
         console.log('cannot get info', error)
     }
 })
-// _______________________major roadblock_________________
+// ___________________roadblock_________________
 // PUT /:id edit comment
 router.put('/:id', async (req, res) => {
     try {
-        const editComment = await db.comment.findAll({
+        const editComment = await db.comment.findByPk({
             where: { villagerId: req.params.id }
         })
         
@@ -69,7 +69,9 @@ router.put('/:id', async (req, res) => {
 // DELETE /:id delete comment
 router.delete('/:id', async (req, res) => {
     try {
-        const deleteComment = await db.comment.findAll()
+        const deleteComment = await db.comment.findByPk(req.params.id)
+        deleteComment.destroy()
+        res.redirect(`/villagers/${req.params.id}`)
     } catch (error) {
         console.log('cannot get info', error)
     }
