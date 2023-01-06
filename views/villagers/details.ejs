@@ -37,11 +37,14 @@
 
 <h2>Comments</h2>
 <div>
-    <% comments.forEach(function(all) { %>
-        <div>
-            <p><%= all.comment %></p>
-        </div>
-    <% }) %>
+    <div>
+        <% comments.forEach(function(all) { %>
+                <p><%= all.comment %></p>
+                <form method="POST" action="/villagers/<%= all.id %>/?_method=DELETE">
+                    <button type="submit">Delete Comment</button>
+                </form>
+        <% }) %>
+    </div>
 </div>
 
 <%- include('../partials/footer') %>
