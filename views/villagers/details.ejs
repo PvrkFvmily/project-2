@@ -39,10 +39,17 @@
 <div>
     <div>
         <% comments.forEach(function(all) { %>
-                <p><%= all.comment %></p>
+            <p><%= all.comment %></p>
+            <p>user comment id <%= all.userId %></p>
+            <p>current user <%= user.id %></p>
+            <% if (all.userId === user.id) { %>
+                <p>id match</p>
                 <form method="POST" action="/villagers/<%= all.id %>/?_method=DELETE">
                     <button type="submit">Delete Comment</button>
                 </form>
+            <% } else { %>
+                <p>id no match</p>
+            <% } %>
         <% }) %>
     </div>
 </div>
