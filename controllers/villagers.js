@@ -57,11 +57,23 @@ router.post('/:id', async (req, res) => {
 // GET /:id load edit comment
 router.get('/:id/edit', async (req, res) => {
     try {
-        const editComment = await db.comment.findByPk(req.params.id)
+        const findComment = await db.comment.findByPk(req.params.id)
         res.render('villagers/edit.ejs', {
-            comment: editComment
+            comment: findComment
         })
-        console.log(editComment)
+        console.log(findComment)
+    } catch (error) {
+        console.log('cannot get info', error)
+    }
+})
+
+router.put('/:id/edit', async (req, res) => {
+    try {
+        const editComment = await db.comment.findByPk(req.params.id)
+        await editComment.update({
+            comment: req.body.comment
+        })
+        res.redirect(`/villagers/${editComment.villagerId}`)
     } catch (error) {
         console.log('cannot get info', error)
     }
@@ -72,7 +84,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const deleteComment = await db.comment.findByPk(req.params.id)
         deleteComment.destroy()
-        res.redirect(`/villagers/${req.params.id}`)
+        res.redirect(`/villagers/${deleteComment.villagerId}`)
     } catch (error) {
         console.log('cannot get info', error)
     }
