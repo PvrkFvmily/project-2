@@ -123,7 +123,7 @@ router.get('/profile/villagers', async (req, res) => {
     }
 })
 
-// POST /profile/villagers post comments
+// POST /profile/villagers post fav villager
 router.post('/profile/villagers', async (req, res) => {
     try {
         const createFav = await db.favVillager.findOrCreate({
@@ -157,7 +157,7 @@ router.post('/profile/villagers', async (req, res) => {
     }
 })
 
-// DELETE /
+// DELETE /profile/villagers/:id delete fav villager
 router.delete('/profile/villagers/:id', async (req, res) => {
     try {
         const deleteFav = await db.favVillager.findByPk(req.params.id)

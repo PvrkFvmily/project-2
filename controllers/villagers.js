@@ -53,14 +53,15 @@ router.post('/:id', async (req, res) => {
         console.log('cannot get info', error)
     }
 })
-// ___________________roadblock_________________
-// PUT /:id edit comment
-router.put('/:id', async (req, res) => {
+// ___________________LAST STRETCH_________________
+// GET /:id load edit comment
+router.get('/:id/edit', async (req, res) => {
     try {
-        const editComment = await db.comment.findByPk({
-            where: { villagerId: req.params.id }
+        const editComment = await db.comment.findByPk(req.params.id)
+        res.render('villagers/edit.ejs', {
+            comment: editComment
         })
-        
+        console.log(editComment)
     } catch (error) {
         console.log('cannot get info', error)
     }
