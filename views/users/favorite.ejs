@@ -1,6 +1,26 @@
 <%- include('../partials/header', { user }) %>
 
-<h1>Here are your favorit villagers!</h1>
+<h1>Here are your favorite villagers!</h1>
+
+<% villagers.forEach(function(villager) { %>
+    <div class="card" style="width: 18rem;">
+        <img src="<%= villager.imgUrl %>" class="card-img-top">
+        <div class="card-body">
+        <h5 class="card-title"><%= villager.name %></h5>
+        <p class="card-text">Here are some traits of </p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= villager.villagerId %></li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        </ul>
+        <div class="card-body">
+            <form method="POST" action="villagers/<%= villager.id %>/?_method=DELETE">
+                <button type="submit">Delete from Favorite</button>
+            </form>
+        </div>
+    </div>
+<% }) %>
 
 <% villagers.forEach(function(villager) { %>
     <div>
