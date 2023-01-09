@@ -1,3 +1,3 @@
-sequelize model:create --name favVillager --attributes userId:integer,villagerId:integer,imgUrl:string,name:string,personality:string,birthday:string,species:string,gender:string,hobby:string,catch_phrase:string
+sequelize model:create --name villager --attributes userId:integer,villagerId:integer,imgUrl:string,name:string,personality:string,birthday:string,species:string,gender:string,hobby:string,catch_phrase:string
 
 sequelize model:create --name comment --attributes userId:integer,villagerId:integer,comment:string

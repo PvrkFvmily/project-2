@@ -112,7 +112,7 @@ router.get('/profile/villagers', async (req, res) => {
         if (!res.locals.user) {
             res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource!')
         } else {
-            const findFav = await db.favVillager.findAll()
+            const findFav = await db.villager.findAll()
             res.render('users/favorite.ejs', {
                 users: res.locals.user,
                 villagers: findFav
@@ -126,7 +126,7 @@ router.get('/profile/villagers', async (req, res) => {
 // POST /profile/villagers post fav villager
 router.post('/profile/villagers', async (req, res) => {
     try {
-        const createFav = await db.favVillager.findOrCreate({
+        const createFav = await db.villager.findOrCreate({
             where: {
                 userId: req.body.userId,
                 villagerId: req.body.villagerId,
@@ -162,7 +162,7 @@ router.post('/profile/villagers', async (req, res) => {
 // DELETE /profile/villagers/:id delete fav villager
 router.delete('/profile/villagers/:id', async (req, res) => {
     try {
-        const deleteFav = await db.favVillager.findByPk(req.params.id)
+        const deleteFav = await db.villager.findByPk(req.params.id)
         deleteFav.destroy()
         res.redirect('/users/profile/villagers')
     } catch (error) {
