@@ -1,61 +1,85 @@
 <%- include('../partials/header', { user }) %>
 
-<h1><%= villagers.name['name-USen'] %></h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
 
-<img src="<%= villagers.image_uri %>"/>
-<div>
-    <p>Personality: <%= villagers.personality %></p>
-    <p>Birthday: <%= villagers['birthday-string'] %></p>
-    <p>Species: <%= villagers.species %></p>
-    <p>Gender: <%= villagers.gender %></p>
-    <p>Hobby: <%= villagers.hobby %></p>
-    <p>Catch-Phrase: <%= villagers['catch-phrase'] %></p>
-</div>
+                <h1 class="d-flex justify-content-center"><%= villagers.name['name-USen'] %></h1>
+                <img src="<%= villagers.image_uri %>" class="card-img-top"/>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Personality: <%= villagers.personality %></li>
+                    <li class="list-group-item">Birthday: <%= villagers['birthday-string'] %></li>
+                    <li class="list-group-item">Species: <%= villagers.species %></li>
+                    <li class="list-group-item">Gender: <%= villagers.gender %></li>
+                    <li class="list-group-item">Hobby: <%= villagers.hobby %></li>
+                    <li class="list-group-item">Catch-Phrase: <%= villagers['catch-phrase'] %></li>
+                </ul>
+        
+                <div class="d-flex justify-content-center">
+                    <form method="POST" action="/users/profile/villagers">
+                       <input hidden type="text" name="userId" value="<%= user.id %>"/>
+                       <input hidden type="text" name="villagerId" value="<%= villagers.id %>"/>
+                       <input hidden type="text" name="name" value="<%= villagers.name['name-USen'] %>"/>
+                       <input hidden type="text" name="personality" value="<%= villagers.personality %>"/>
+                       <input hidden type="text" name="imgUrl" value="<%= villagers.image_uri %>"/>
+                       <input hidden type="text" name="birthday" value="<%= villagers['birthday-string'] %>"/>
+                       <input hidden type="text" name="species" value="<%= villagers.species %>"/>
+                       <input hidden type="text" name="gender" value="<%= villagers.gender %>"/>
+                       <input hidden type="text" name="hobby" value="<%= villagers.hobby %>"/>
+                       <input hidden type="text" name="catch_phrase" value="<%= villagers['catch-phrase'] %>"/>
+                       
+                       <button class="btn btn-primary">Add to Favorites</button>
+                    </form>  
+                </div>
+        
+            </div>
+        </div>
 
-<form method="POST" action="/users/profile/villagers">
-    <input hidden type="text" name="userId" value="<%= user.id %>"/>
-    <input hidden type="text" name="villagerId" value="<%= villagers.id %>"/>
-    <input hidden type="text" name="name" value="<%= villagers.name['name-USen'] %>"/>
-    <input hidden type="text" name="personality" value="<%= villagers.personality %>"/>
-    <input hidden type="text" name="imgUrl" value="<%= villagers.image_uri %>"/>
-    <input hidden type="text" name="birthday" value="<%= villagers['birthday-string'] %>"/>
-    <input hidden type="text" name="species" value="<%= villagers.species %>"/>
-    <input hidden type="text" name="gender" value="<%= villagers.gender %>"/>
-    <input hidden type="text" name="hobby" value="<%= villagers.hobby %>"/>
-    <input hidden type="text" name="catch_phrase" value="<%= villagers['catch-phrase'] %>"/>
-    
-    <button type="submit">Add to Favorites</button>
-</form>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h2>Comments</h2>
+                    <form method="POST" action="/villagers/<%= villagers.id %>">
+                        <div class="input-group">
+                            <input hidden type="text" name="userId" value="<%= user.id %>" />
+                            <input hidden type="text" name="villagerId" value="<%= villagers.id %>" />
+                            <textarea class="form-control" id="comment" type="text" name="comment" placeholder="Leave your thoughts about this villager!"></textarea>
 
-<h2>Comments</h2>
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                        
+                    </form>
+                    
+                    <div>
+                        <div class="card">
+                            <% comments.forEach(function(all) { %>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <%= all.comment %>
+                                        <div class="d-flex justify-content-evenly">
+                                            <% if (all.userId === user.id) { %>
+                                                <form method="GET" action="/villagers/<%= all.id %>/edit">
+                                                    <button class="btn btn-primary">Edit</button>
+                                                </form>
+                                                <form method="POST" action="/villagers/<%= all.id %>/?_method=DELETE">
+                                                    <button class="btn btn-primary">Delete Comment</button>
+                                                </form>
+                                            <% } %>
+                                        </div>
+                                    </li>
+                                </ul>
+                            <% }) %>
+                        </div>
 
-<form method="POST" action="/villagers/<%= villagers.id %>">
-    <input id="comment" type="text" name="comment" placeholder="Leave your thoughts about this villager!">
-    <input hidden type="text" name="userId" value="<%= user.id %>" />
-    <input hidden type="text" name="villagerId" value="<%= villagers.id %>" />
+                    </div> 
 
-    <button type="sumbit">Submit</button>
-</form>
-
-<div>
-    <div>
-        <% comments.forEach(function(all) { %>
-            <p><%= all.comment %></p>
-            <p>user comment id <%= all.userId %></p>
-            <p>current user <%= user.id %></p>
-            <% if (all.userId === user.id) { %>
-                <p>id match</p>
-                <form method="GET" action="/villagers/<%= all.id %>/edit">
-                    <button type="submit">Edit</button>
-                </form>
-                <form method="POST" action="/villagers/<%= all.id %>/?_method=DELETE">
-                    <button type="submit">Delete Comment</button>
-                </form>
-            <% } else { %>
-                <p>id no match</p>
-            <% } %>
-        <% }) %>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
+
 </div>
 
 <%- include('../partials/footer') %>

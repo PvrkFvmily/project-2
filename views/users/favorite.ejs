@@ -12,10 +12,10 @@
                     <div class="card-body">
                     <h5 class="card-title"><%= villager.name %></h5>
                     <p class="card-text">"<%= villager.catch_phrase %>"</p>
-                    <p class="card-text"><%= villager.name %> is a <%= villager.species %> and was born in <%= villager.birthday %>. Often <%= villager.personality %> and is into <%= villager.hobby %></p>
+                    <p class="card-text"><%= villager.name %> is a <%= villager.species %> and was born in <%= villager.birthday %> and is into <%= villager.hobby %></p>
                     </div>
                     <div class="card-body">
-                        <a href="/villagers/<%= villager.villagerId %>" class="btn btn-primary">more about <%= villager.name %></a>
+                        <a href="/villagers/<%= villager.villagerId %>" class="btn btn-primary">More about <%= villager.name %></a>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="villagers/<%= villager.id %>/?_method=DELETE">

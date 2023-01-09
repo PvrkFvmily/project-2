@@ -1,11 +1,13 @@
 <%- include('../partials/header', { user }) %>
 
+<p class="d-flex justify-content-center">All Villagers</p>
+
 <div class="container">
     <div class="row">
         <% villagers.forEach(function(villager) { %>
             <div class="col">
                 <img src="<%= villager.icon_uri %>"/> 
-                <a href="villagers/<%= villager.id %>"><%= villager.name['name-USen'] %></a>
+                <a href="villagers/<%= villager.id %>" class="btn btn-primary"><%= villager.name['name-USen'] %></a>
             </div>
         <% }) %>
     </div>
