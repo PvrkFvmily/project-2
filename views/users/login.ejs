@@ -1,19 +1,30 @@
 <%- include('../partials/header.ejs', { user }) %> 
 
-<h3>Login to your account</h3>
 
-<% if (message) { %>
-    <p><%= message %></p>
-<% } %>
+<div class="container">
+    <h3 class="row justify-content-center">Login to your account</h3>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <% if (message) { %>
+                <p class="row justify-content-center"><%= message %></p>
+            <% } %>
+            
+            <form class="row justify-content-center" action="/users/login" method="POST">
+                <label form="email">Email:</label>
+                <input type="email" name="email" id="email"/>
+                
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password"/>
+                
+                <button class="btn btn-primary">Login</button>
+            </form>
 
-<form action="/users/login" method="POST">
-    <label form="email">Email:</label>
-    <input type="email" name="email" id="email"/>
-    
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password"/>
-    
-    <button type="submit">Login</button>
-</form>
+        </div>
+
+    </div>
+
+</div>
+
+
 
 <%- include('../partials/footer.ejs') %> 

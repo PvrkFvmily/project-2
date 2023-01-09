@@ -3,11 +3,13 @@
 <p class="d-flex justify-content-center">All Villagers</p>
 
 <div class="container">
-    <div class="row">
+    <div class="row gy-3">
         <% villagers.forEach(function(villager) { %>
-            <div class="col">
+            <div class="col gx-5">
                 <img src="<%= villager.icon_uri %>"/> 
-                <a href="villagers/<%= villager.id %>" class="btn btn-primary"><%= villager.name['name-USen'] %></a>
+                <div class="row justify-content-evenly">
+                    <a href="villagers/<%= villager.id %>" class="btn btn-primary"><%= villager.name['name-USen'] %></a>
+                </div>
             </div>
         <% }) %>
     </div>

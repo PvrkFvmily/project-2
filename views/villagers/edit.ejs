@@ -1,13 +1,20 @@
 <%- include('../partials/header', { user }) %>
 
-<h2>Edit Comment</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="row justify-content-center">
+            <h2>Edit Comment</h2>
+            
+            <form method="POST" action="/villagers/<%= comment.id %>/edit?_method=PUT">
+                <input hidden type="text" name="userId" value="<%= comment.userId %>"/>
+                <input hidden type="text" name="villagerId" value="<%= comment.villagerId %>"/>
+                <textarea class="form-control" id="comment" type="text" name="comment" value="<%= comment.comment %>"><%= comment.comment %></textarea>
+            
+                <button class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
 
-<form method="POST" action="/villagers/<%= comment.id %>/edit?_method=PUT">
-    <input hidden type="text" name="userId" value="<%= comment.userId %>"/>
-    <input hidden type="text" name="villagerId" value="<%= comment.villagerId %>"/>
-    <input type="text" name="comment" value="<%= comment.comment %>"/>
-
-    <button type="submit">Submit</button>
-</form>
+</div>
 
 <%- include('../partials/footer') %>
