@@ -61,7 +61,7 @@ router.get('/:id/edit', async (req, res) => {
         res.render('villagers/edit.ejs', {
             comment: findComment
         })
-        console.log(findComment)
+        // console.log(findComment)
     } catch (error) {
         console.log('cannot get info', error)
     }
@@ -89,38 +89,6 @@ router.delete('/:id', async (req, res) => {
         console.log('cannot get info', error)
     }
 })
-
-// // GET /species
-// router.get('/species', async (req, res) => {
-//     try {
-//         let acnhUrl = process.env.API
-//         const response = await axios.get(acnhUrl)
-//         // console.log(response.data[0].personality)
-//         res.render('villagers/species.ejs', {
-//             villager: response.data,
-//         })
-//     } catch (error) {
-//         console.log('cannot get info', error)
-//     }
-// })
-// // GET /gender
-// router.get('/gender', async (req, res) => {
-//     try {
-//         res.send('list all the villagers by gender here with ejs')
-//     } catch (error) {
-//         console.log('cannot get info', error)
-//     }
-// })
-
-// // GET /hobby
-// router.get('/hobby', async (req, res) => {
-//     try {
-//         res.send('list all the villagers by hobby here with ejs')
-//     } catch (error) {
-//         console.log('cannot get info', error)
-//     }
-// })
-
 
 // router export
 module.exports = router;

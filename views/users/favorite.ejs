@@ -1,9 +1,9 @@
 <%- include('../partials/header', { user }) %>
 
-<h1>Here are your favorite villagers!</h1>
+<h4 class="d-flex justify-content-center">Here are your favorite villagers!</h1>
 
 
-<div class="container">
+<div class="d-flex justify-content-center">
     <div class="row">
         <% villagers.forEach(function(villager) { %>
             <% if (user.id === villager.userId) { %>
@@ -15,9 +15,11 @@
                     <p class="card-text"><%= villager.name %> is a <%= villager.species %> and was born in <%= villager.birthday %>. Often <%= villager.personality %> and is into <%= villager.hobby %></p>
                     </div>
                     <div class="card-body">
-                        <a href="/villagers/<%= villager.villagerId %>" class="card-link">Click here to find more about <%= villager.name %></a>
+                        <a href="/villagers/<%= villager.villagerId %>" class="btn btn-primary">more about <%= villager.name %></a>
+                    </div>
+                    <div class="card-body">
                         <form method="POST" action="villagers/<%= villager.id %>/?_method=DELETE">
-                            <button type="submit">Delete from Favorite</button>
+                            <button class="btn btn-primary" type="submit">Delete from Favorite</button>
                         </form>
                     </div>
                 </div>

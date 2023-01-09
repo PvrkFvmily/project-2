@@ -1,12 +1,14 @@
 <%- include('../partials/header', { user }) %>
 
-<div>
-    <% villagers.forEach(function(villager) { %>
-        <div>
-            <img src="<%= villager.icon_uri %>"/> 
-        </div>
-        <a href="villagers/<%= villager.id %>"><%= villager.name['name-USen'] %></a>
-    <% }) %>
+<div class="container">
+    <div class="row">
+        <% villagers.forEach(function(villager) { %>
+            <div class="col">
+                <img src="<%= villager.icon_uri %>"/> 
+                <a href="villagers/<%= villager.id %>"><%= villager.name['name-USen'] %></a>
+            </div>
+        <% }) %>
+    </div>
 </div>
 
 <%- include('../partials/footer') %>
