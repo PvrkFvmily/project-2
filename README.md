@@ -5,8 +5,10 @@ This project allows you to view list of the villagers from Animal Crossing: New 
 ## Installation
 - fork and clone the repo
 - open project and run `npm install` in terminal
-- touch .env and inside the folder type SECRET='this is a secret' PORT='8000' API='https://acnhapi.com/v1a/villagers'
-- echo
+- `touch .env` and inside the folder type `SECRET='this is a secret' PORT='8000' API='https://acnhapi.com/v1a/villagers'`
+- run `echo node_module .env >> .gitignore` to avoid commiting whole node_modules
+- run `sequelize db:create` and `sequelize db:migrate`
+- run `nodemon` and type `localhost:8000` in your browser.
 
 ---
 ## Link to live site
