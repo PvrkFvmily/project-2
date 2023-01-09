@@ -2,34 +2,27 @@
 
 <h1>Here are your favorite villagers!</h1>
 
-<% villagers.forEach(function(villager) { %>
-    <div class="card" style="width: 18rem;">
-        <img src="<%= villager.imgUrl %>" class="card-img-top">
-        <div class="card-body">
-        <h5 class="card-title"><%= villager.name %></h5>
-        <p class="card-text">Here are some traits of </p>
+<div class="container">
+    <% villagers.forEach(function(villager) { %>
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= villager.imgUrl %>" class="card-img-top">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= villager.name %></h5>
+                    <p class="card-text">"<%= villager.catch_phrase %>"</p>
+                    <p class="card-text"><%= villager.name %> is a <%= villager.species %> and was born in <%= villager.birthday %>. Often <%= villager.personality %> and is into <%= villager.hobby %></p>
+                    </div>
+                    <div class="card-body">
+                        <a href="/villagers/<%= villager.villagerId %>" class="card-link">Click here to find more about <%= villager.name %></a>
+                        <form method="POST" action="villagers/<%= villager.id %>/?_method=DELETE">
+                            <button type="submit">Delete from Favorite</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= villager.villagerId %></li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        </ul>
-        <div class="card-body">
-            <form method="POST" action="villagers/<%= villager.id %>/?_method=DELETE">
-                <button type="submit">Delete from Favorite</button>
-            </form>
-        </div>
-    </div>
-<% }) %>
-
-<% villagers.forEach(function(villager) { %>
-    <div>
-        <img src="<%= villager.imgUrl %>"/>
-    </div>
-    <a href="/villagers/<%= villager.villagerId %>"><%= villager.name %></a>
-    <form method="POST" action="villagers/<%= villager.id %>/?_method=DELETE">
-        <button type="submit">Delete</button>
-    </form>
-<% }) %>
+    <% }) %>
+</div>
 
 <%- include('../partials/footer') %>
